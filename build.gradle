@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'application'
+    id 'com.adarshr.test-logger' version '4.0.0'
+    id 'se.patrikerdes.use-latest-versions' version '0.2.18'
+    id 'com.github.ben-manes.versions' version '0.41.0'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.javalin:javalin:5.6.3'
+    implementation 'io.javalin:javalin-rendering:5.6.3'
+    implementation 'gg.jte:jte:3.1.6'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.10'
+    testImplementation 'org.junit:junit-bom:5.10.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.10.1'
+}
+
+compileJava {
+    options.release = 20
+}
+
+run {
+    standardInput = System.in
+}
+
+test {
+    useJUnitPlatform()
+}
+
+testlogger {
+    theme 'mocha'
+    slowThreshold 5000
+}
+
+application {
+    mainClass = 'org.example.hexlet.HelloWorld'
+}
