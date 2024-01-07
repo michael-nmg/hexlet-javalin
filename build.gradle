@@ -43,5 +43,5 @@ testlogger {
 }
 
 application {
-    mainClass = 'org.example.hexlet.HelloWorld'
+    mainClass = 'org.example.hexlet.SimpleTitle'
 }
